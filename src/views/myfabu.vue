@@ -12,7 +12,7 @@
 <!--        已发布的-->
     <div class="fabuBox" v-if="show">
 
-        <div class="goodsbox" v-for=" p in productList" :key="p.id" @click="toGoods" >
+        <div class="goodsbox" v-for=" p in productList" :key="p.id" @click="toGoods(p)" >
 
 <!--                下架就删除-->
 <!--            <div v-if="p.status == 1 || p.status == 0">-->
@@ -124,8 +124,9 @@
 
 
             // 商品详情
-            toGoods(){
-                this.$store.dispatch('setCurGood',this.index);
+            toGoods(curgood){
+                this.$store.dispatch('setCurGood',curgood);
+                console.log(curgood)
 
             },
             // 下架物品
@@ -170,7 +171,7 @@
     .wrap {
         width: 100%;
         height: 100vh;
-        background-color: #f7f7f7;
+        background-color: #f2f2f2;
         overflow-y: scroll;
     }
     .head {
@@ -224,6 +225,7 @@
         background-color: #fff;
         margin: 0 auto;
         margin-top: 1rem;
+        border-radius: 8%;
     }
     .username {
         display: -webkit-flex;

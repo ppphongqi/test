@@ -17,6 +17,8 @@
 
 
                     <p class="price"> ￥{{ p.price }}</p>
+                    <van-button type="primary" round class="quality">{{p.quality}}成新</van-button>
+                    <van-button icon="star-o" round type="danger" size="normal" class="heat">{{p.heat}}个❤</van-button>
                 </div>
 
 
@@ -126,7 +128,7 @@
     .wrap {
         width: 100%;
         height: 100vh;
-        background-color: #f7f7f7;
+        background-color: #f2f2f2;
         overflow-y: scroll;
     }
     .head {
@@ -180,12 +182,13 @@
         background-color: #fff;
         margin: 0 auto;
         margin-top: 1rem;
+        border-radius: 8%;
     }
     .username {
         display: -webkit-flex;
         display: flex;
         font-size: 1.2rem;
-        height: 5rem;
+        height: 4rem;
         /*line-height: 5rem;*/
         align-items: center;
         padding: 0rem 1rem;
@@ -213,6 +216,7 @@
     .price {
         color: red;
         font-size: 1.5rem;
+        width:50%;
     }
     .detail {
         width: 100%;
@@ -298,6 +302,13 @@
         height:100%;
         /*width:90%;*/
         margin:0 auto;
+    }
+    .quality{
+        right:0;
+        width:23%;
+    }
+    .heat{
+        width:23%;
     }
 
 

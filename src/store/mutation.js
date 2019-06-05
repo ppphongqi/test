@@ -39,7 +39,8 @@ const mutations = {
 
     // 传递当前物品数据
         setCurGood:(state,curgood) =>{
-            state.curgood = curgood
+            state.curgood = curgood;
+            console.log(state.curgood)
         },
 
 

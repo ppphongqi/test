@@ -58,9 +58,9 @@
             <van-cell title="我收藏的" size="large" is-link icon="like-o" @click="collect" center>
                 <span class="number" v-if="login"></span>
             </van-cell>
-            <van-cell title="我买到的" size="large" is-link icon="completed" @click="buy" center>
-                <span class="number" v-if="login">{{ buynum }}</span>
-            </van-cell>
+<!--            <van-cell title="我买到的" size="large" is-link icon="completed" @click="buy" center>-->
+<!--                <span class="number" v-if="login">{{ buynum }}</span>-->
+<!--            </van-cell>-->
         </div>
 <!--        vant单元格-->
 
@@ -202,7 +202,7 @@
     }
     .wrapper {
         width: 100%;
-        min-height: 48rem;
+        /*min-height: 48rem;*/
         background-color: #f3f3f3;
     }
 
@@ -376,7 +376,7 @@
         font-size: 1.3rem;
     }
     .block {
-        height: 50px;
+        height: 0;
     }
     .smallblock{
         height: 5px;
