@@ -12,7 +12,10 @@
 <!--        已发布的-->
     <div class="fabuBox" v-if="show">
 
-        <div class="goodsbox" v-for=" p in productList" :key="p.id" @click="toGoods">
+        <div class="goodsbox" v-for=" p in productList" :key="p.id" @click="toGoods" >
+
+<!--                下架就删除-->
+<!--            <div v-if="p.status == 1 || p.status == 0">-->
         <!--<div class="goodsbox">-->
             <div class="username">
 <!--                用户头像-->
@@ -36,19 +39,23 @@
                 <div class="time">{{ new Date(p.life).toLocaleString() }}</div>
             </div>
 
-            <div class="operate" v-if="p.status != 1">
-<!--                正式-->
+<!--            发布中的物品-->
+            <div class="operate" v-if="p.status == 1">
+                <div class="change" @click="change">修改</div>
+                <div class="del" @click="del(p.id.toString())">删除</div>
+            </div>
+
+
+            <div class="operate" v-else>
+<!--                待审核-->
                 <div class="change" v-if="p.status != 1 && p.status == 0">待审核</div>
                 <div class="del" v-if="p.status == -1">已下架</div>
-
-            </div>
-            <div class="operate" v-else>
-                <div class="change" @click="change">修改</div>
-                <div class="del" @click="del">删除</div>
             </div>
 
         </div>
-    </div>
+
+        </div>
+<!--    </div>-->
 <!--        没有发布的情况-->
         <div class="nothingbox" v-if="hide">
             <div class="nothing">
@@ -66,10 +73,13 @@
 </template>
 
 <script>
+    import { Toast } from 'vant';
+    import axios from 'axios';
     import {mapGetters,mapActions,mapState} from 'vuex';
     import { reqUserFabu} from "../api";
 
     export default {
+        inject:['reload'],
         computed:mapGetters(['userFabu','userInfo','username']),
 
         data(){
@@ -119,10 +129,25 @@
 
             },
             // 下架物品
-            del(){
+            del(pid){
+                axios.delete( 'http://localhost:8899/api/v1/product',{
+                    data:{
+                        "id": pid
+                    }
+                }).then((res)=>{
+                    if(res.status === 200){
+                        Toast("下架成功");
+                        setTimeout(()=>{
+                            this.reload()
+                        },600)
+                    }else{
+                        Toast('下架失败')
+                    }
+                })
             },
             // 修改物品
             change(){
+
             }
 
         },

@@ -37,7 +37,9 @@
             </div>
 
 
-            <div class="bigblock"></div>
+            <div class="bigblock">
+
+            </div>
 
             <!--点击登录-->
             <div class="clickLogin">
@@ -64,11 +66,8 @@ import { reqPwdLogin} from "../api";
 export default {
         data(){
             return {
-
-
                 phone:'',   //手机号
                 pwd:'',     //密码
-
 
             }
         },

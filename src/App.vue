@@ -1,7 +1,7 @@
 <template>
   <div id="app">
 
-    <router-view/>
+    <router-view v-if="isRouterAlive"/>
 
   </div>
 </template>
@@ -9,14 +9,37 @@
 
 
 <script>
-
+  import axios from 'axios';
   import {mapActions} from 'vuex';
 
   export default{
+    name:'App',
+
+    provide(){
+      return {
+        reload:this.reload
+      }
+    },
+    data(){
+      return {
+        isRouterAlive:true
+      }
+    },
+    methods:{
+      reload(){
+        this.isRouterAlive = false;
+        this.$nextTick(()=>{
+          this.isRouterAlive =true;
+        })
+      }
+    },
+
+
+
+
     mounted() {
 
       this.getUserInfo();
-
       console.log('主页')
     }
   }

@@ -40,7 +40,7 @@
                 </div>
 
                 <div class="operate" >
-                    <div class="del">删除</div>
+                    <div class="del" @click="del(p.id)">删除</div>
                 </div>
 
             </div>
@@ -59,9 +59,12 @@
 
 
 <script>
+    import axios from 'axios';
+    import { Toast } from 'vant';
     import {reqCollect} from "../api";
     import {mapGetters,mapActions,mapState} from 'vuex';
     export default {
+        inject:['reload'],
         data(){
             return {
                 status:0,
@@ -69,11 +72,11 @@
                 hide: false,
                 productList: [],
 
-
-
             }
         },
         computed:mapGetters(['userCollect']),
+
+
 
         methods:{
 
@@ -89,6 +92,22 @@
                     this.productList.push(i)
                 }
             },
+            del(pid){
+                    axios.delete( 'http://localhost:8899/api/v1/user/collect',{
+                    data:{
+                        "id": pid
+                    }
+                }).then((res)=>{
+                    if(res.status === 200){
+                        Toast('取消收藏成功');
+                        setTimeout(()=>{
+                            this.reload()
+                        },600)
+                    }else{
+                        Toast('取消收藏失败')
+                    }
+                })
+            }
 
 
         },
