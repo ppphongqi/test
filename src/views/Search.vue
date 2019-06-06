@@ -24,18 +24,6 @@
   </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 <!--    <van-nav-bar @click-lift="goHome" fiexd>-->
 
 <!--      &lt;!&ndash;顶端左部&ndash;&gt;-->

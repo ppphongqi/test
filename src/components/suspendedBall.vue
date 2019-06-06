@@ -104,7 +104,7 @@ export default {
         window.pageYOffset ||
         document.documentElement.scrollTop ||
         document.body.scrollTop;
-      if (this.scrollTop2 == this.scrollTop1) {
+      if (this.scrollTop2 === this.scrollTop1) {
         // 消失逻辑
         this.show = !this.show;
       }

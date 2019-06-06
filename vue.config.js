@@ -7,7 +7,7 @@ module.exports = {
     contentBase: [path.join(__dirname, 'public')],
     port: 9000,
     open: true,
-    // host:'127.0.0.1'
+    host:'localhost'
   },
 
   runtimeCompiler: true

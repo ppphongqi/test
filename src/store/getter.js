@@ -37,7 +37,8 @@ export default {
     },
     userCollect:(state) => {
         return state.userCollect
-    }
+    },
+
 
 
 

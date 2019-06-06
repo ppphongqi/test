@@ -7,40 +7,35 @@
 </template>
 
 
-
 <script>
-  import axios from 'axios';
-  import {mapActions} from 'vuex';
+  // import axios from 'axios';
+  // import {mapActions} from 'vuex';
 
-  export default{
-    name:'App',
+  export default {
+    name: 'App',
 
-    provide(){
+    provide() {
       return {
-        reload:this.reload
+        reload: this.reload
       }
     },
-    data(){
+    data() {
       return {
-        isRouterAlive:true
+        isRouterAlive: true
       }
     },
-    methods:{
-      reload(){
+    methods: {
+      reload() {
         this.isRouterAlive = false;
-        this.$nextTick(()=>{
-          this.isRouterAlive =true;
+        this.$nextTick(() => {
+          this.isRouterAlive = true;
         })
       }
     },
-
-
-
-
     mounted() {
 
-      this.getUserInfo();
-      console.log('主页')
+      // this.getUserInfo();
+      // console.log('主页')
     }
   }
 
@@ -49,10 +44,10 @@
 
 <style>
 
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+  #app {
+    font-family: 'Avenir', Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 
 </style>

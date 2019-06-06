@@ -8501,11 +8501,6 @@ vue-template-es2015-compiler@^1.9.0:
   resolved "https://registry.npm.taobao.org/vue-template-es2015-compiler/download/vue-template-es2015-compiler-1.9.1.tgz#1ee3bc9a16ecbf5118be334bb15f9c46f82f5825"
   integrity sha1-HuO8mhbsv1EYvjNLsV+cRvgvWCU=
 
-vue-waterfall-easy@^2.4.3:
-  version "2.4.3"
-  resolved "https://registry.npm.taobao.org/vue-waterfall-easy/download/vue-waterfall-easy-2.4.3.tgz#a71d5e51efffd297b38caf1ffe1722a838402dbd"
-  integrity sha1-px1eUe//0pezjK8f/hciqDhALb0=
-
 vue@^2.6.10, vue@^2.6.9:
   version "2.6.10"
   resolved "https://registry.npm.taobao.org/vue/download/vue-2.6.10.tgz#a72b1a42a4d82a721ea438d1b6bf55e66195c637"
